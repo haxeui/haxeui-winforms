@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<native>
+    
+    <component id="haxe.ui.components.Label" class="System.Windows.Forms.Label" allowChildren="false">
+        <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>    
+    <component id="haxe.ui.components.Image" class="System.Windows.Forms.PictureBox">
+        <behaviour id="resource" class="haxe.ui.backend.winforms.behaviours.ControlImage" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>
+    <component id="haxe.ui.components.Button" class="System.Windows.Forms.Button" allowChildren="false">
+        <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
+        <behaviour id="icon" class="haxe.ui.backend.winforms.behaviours.ControlImage" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>    
+    <component id="haxe.ui.components.CheckBox" class="System.Windows.Forms.CheckBox" allowChildren="false">
+        <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
+        <behaviour id="selected" class="haxe.ui.backend.winforms.behaviours.ControlChecked" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>    
+    <component id="haxe.ui.components.OptionBox" class="System.Windows.Forms.RadioButton" allowChildren="false">
+        <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
+        <behaviour id="selected" class="haxe.ui.backend.winforms.behaviours.ControlChecked" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>    
+    <component id="haxe.ui.components.HorizontalProgress" class="System.Windows.Forms.ProgressBar" allowChildren="false">
+        <behaviour id="start" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.core.UIEvent.CHANGE" />
+        <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <behaviour id="min" class="haxe.ui.backend.winforms.behaviours.ControlMin" />
+        <behaviour id="max" class="haxe.ui.backend.winforms.behaviours.ControlMax" />
+        <behaviour id="indeterminate" class="haxe.ui.backend.winforms.behaviours.ProgressBarMarquee" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component> 
+    <component id="haxe.ui.components.VerticalProgress" class="haxe.ui.backend.winforms.custom.VerticalProgressBar" allowChildren="false">
+        <behaviour id="start" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.core.UIEvent.CHANGE" />
+        <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <behaviour id="min" class="haxe.ui.backend.winforms.behaviours.ControlMin" />
+        <behaviour id="max" class="haxe.ui.backend.winforms.behaviours.ControlMax" />
+        <behaviour id="indeterminate" class="haxe.ui.backend.winforms.behaviours.ProgressBarMarquee" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component> 
+    <component id="haxe.ui.components.HorizontalSlider" class="System.Windows.Forms.TrackBar" style="TickStyle: System.Windows.Forms.TickStyle.None; AutoSize: false;" allowChildren="false">
+        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.core.UIEvent.CHANGE" />
+        <behaviour id="start" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <behaviour id="min" class="haxe.ui.backend.winforms.behaviours.ControlMin" />
+        <behaviour id="max" class="haxe.ui.backend.winforms.behaviours.ControlMax" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>    
+    <component id="haxe.ui.components.VerticalSlider" class="System.Windows.Forms.TrackBar" style="Orientation: System.Windows.Forms.Orientation.Vertical; TickStyle: System.Windows.Forms.TickStyle.None; AutoSize: false;" allowChildren="false">
+        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.core.UIEvent.CHANGE" />
+        <behaviour id="start" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <behaviour id="min" class="haxe.ui.backend.winforms.behaviours.ControlMin" />
+        <behaviour id="max" class="haxe.ui.backend.winforms.behaviours.ControlMax" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <component id="haxe.ui.components.HSlider" class="System.Windows.Forms.TrackBar" allowChildren="false">
+        <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>    
+    <component id="haxe.ui.containers.TabView" class="System.Windows.Forms.TabControl">
+        <size class="haxe.ui.backend.winforms.size.TabControlPageSize" includePadding="false" />
+    </component>
+    <component id="haxe.ui.components.TextField" class="System.Windows.Forms.TextBox">
+        <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>
+    <component id="haxe.ui.containers.ScrollView" class="System.Windows.Forms.Panel">
+        <size class="haxe.ui.backend.winforms.size.ScrollViewSize" includePadding="false" />
+    </component>
+    <component id="haxe.ui.components.Image" class="System.Windows.Forms.PictureBox">
+        <behaviour id="resource" class="haxe.ui.backend.winforms.behaviours.ControlImage" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>
+    <!--
+    <component id="haxe.ui.containers.ListView" class="System.Windows.Forms.Panel" allowChildren="false">
+        <size class="haxe.ui.backend.winforms.size.ScrollViewSize" includePadding="false" />
+    </component>
+    -->    
+</native>

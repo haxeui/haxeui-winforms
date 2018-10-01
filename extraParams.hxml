@@ -1,0 +1,8 @@
+-net-lib C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Windows.Forms.dll@std
+-net-lib C:\Windows\Microsoft.NET\Framework\v2.0.50727\System.Drawing.dll@std
+-net-lib C:\Windows\Microsoft.NET\Framework\v2.0.50727\Accessibility.dll@std
+
+--macro include("haxe.ui.backend.winforms")
+--macro include("haxe.ui.backend.winforms.behaviours")
+--macro include("haxe.ui.backend.winforms.size")
+--macro include("haxe.ui.backend.winforms.custom")

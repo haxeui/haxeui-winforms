@@ -1,0 +1,34 @@
+* {
+    native: true;
+}
+
+.button {
+    background-color: none;
+}
+
+.textfield {
+    width: 100px;
+    height: auto;
+}
+
+.horizontal-slider {
+    width: auto;
+    height: 23px;
+}
+
+.vertical-slider {
+    width: 23px;
+    height: 100px;
+}
+
+.horizontal-progress {
+    width: auto;
+    height: 15px;
+}
+
+.vertical-progress {
+    width: 15px;
+    height: 100px;
+}
+
+
