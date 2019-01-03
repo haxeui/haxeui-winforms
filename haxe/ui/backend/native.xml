@@ -70,7 +70,7 @@
     </component>
     <component id="haxe.ui.components.NumberStepper" class="System.Windows.Forms.NumericUpDown">
         <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlText" />
-        <behaviour id="step" class="haxe.ui.core.DefaultBehaviour" />
+        <behaviour id="step" class="haxe.ui.behaviours.DefaultBehaviour" />
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
     </component>
     <component id="haxe.ui.components.TextArea" class="System.Windows.Forms.TextBox" style="Multiline: true; ScrollBars: System.Windows.Forms.ScrollBars.Both; AutoSize: false;">

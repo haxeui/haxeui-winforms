@@ -1,6 +1,6 @@
 package haxe.ui.backend.winforms.behaviours;
 
-import haxe.ui.core.DataBehaviour;
+import haxe.ui.behaviours.DataBehaviour;
 
 class ControlText extends DataBehaviour {
     public override function validateData() {

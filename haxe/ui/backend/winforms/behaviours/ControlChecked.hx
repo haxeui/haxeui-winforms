@@ -1,6 +1,6 @@
 package haxe.ui.backend.winforms.behaviours;
 
-import haxe.ui.core.Behaviour;
+import haxe.ui.behaviours.Behaviour;
 import haxe.ui.util.Variant;
 
 class ControlChecked extends Behaviour {

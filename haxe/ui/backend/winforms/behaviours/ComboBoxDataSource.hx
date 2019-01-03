@@ -1,7 +1,7 @@
 package haxe.ui.backend.winforms.behaviours;
 
+import haxe.ui.behaviours.DataBehaviour;
 import haxe.ui.components.DropDown;
-import haxe.ui.core.DataBehaviour;
 import haxe.ui.data.DataSource;
 
 class ComboBoxDataSource extends DataBehaviour {
