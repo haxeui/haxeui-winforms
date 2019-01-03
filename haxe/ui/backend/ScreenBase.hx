@@ -1,7 +1,7 @@
 package haxe.ui.backend;
 
 import haxe.ui.core.Component;
-import haxe.ui.core.UIEvent;
+import haxe.ui.events.UIEvent;
 import cs.system.windows.forms.Form;
 
 class ScreenBase {

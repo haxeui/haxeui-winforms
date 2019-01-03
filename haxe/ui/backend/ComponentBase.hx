@@ -13,10 +13,10 @@ import haxe.ui.backend.winforms.StyleHelper;
 import haxe.ui.containers.Box;
 import haxe.ui.core.Component;
 import haxe.ui.core.ImageDisplay;
-import haxe.ui.core.MouseEvent;
 import haxe.ui.core.TextDisplay;
 import haxe.ui.core.TextInput;
-import haxe.ui.core.UIEvent;
+import haxe.ui.events.MouseEvent;
+import haxe.ui.events.UIEvent;
 import haxe.ui.styles.Style;
 import haxe.ui.util.Rectangle;
 

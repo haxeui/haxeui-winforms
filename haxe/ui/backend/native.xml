@@ -29,7 +29,7 @@
     </component>    
     <component id="haxe.ui.components.HorizontalProgress" class="System.Windows.Forms.ProgressBar" allowChildren="false">
         <behaviour id="start" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
-        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.core.UIEvent.CHANGE" />
+        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.events.UIEvent.CHANGE" />
         <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
         <behaviour id="min" class="haxe.ui.backend.winforms.behaviours.ControlMin" />
         <behaviour id="max" class="haxe.ui.backend.winforms.behaviours.ControlMax" />
@@ -38,7 +38,7 @@
     </component> 
     <component id="haxe.ui.components.VerticalProgress" class="haxe.ui.backend.winforms.custom.VerticalProgressBar" allowChildren="false">
         <behaviour id="start" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
-        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.core.UIEvent.CHANGE" />
+        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.events.UIEvent.CHANGE" />
         <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
         <behaviour id="min" class="haxe.ui.backend.winforms.behaviours.ControlMin" />
         <behaviour id="max" class="haxe.ui.backend.winforms.behaviours.ControlMax" />
@@ -46,7 +46,7 @@
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
     </component> 
     <component id="haxe.ui.components.HorizontalSlider" class="System.Windows.Forms.TrackBar" style="TickStyle: System.Windows.Forms.TickStyle.None; AutoSize: false;" allowChildren="false">
-        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.core.UIEvent.CHANGE" />
+        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.events.UIEvent.CHANGE" />
         <behaviour id="start" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
         <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
         <behaviour id="min" class="haxe.ui.backend.winforms.behaviours.ControlMin" />
@@ -54,7 +54,7 @@
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
     </component>    
     <component id="haxe.ui.components.VerticalSlider" class="System.Windows.Forms.TrackBar" style="Orientation: System.Windows.Forms.Orientation.Vertical; TickStyle: System.Windows.Forms.TickStyle.None; AutoSize: false;" allowChildren="false">
-        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.core.UIEvent.CHANGE" />
+        <behaviour id="end" class="haxe.ui.backend.winforms.behaviours.ControlValue" autoDispatch="haxe.ui.events.UIEvent.CHANGE" />
         <behaviour id="start" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
         <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
         <behaviour id="min" class="haxe.ui.backend.winforms.behaviours.ControlMin" />
