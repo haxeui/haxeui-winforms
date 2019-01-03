@@ -2,8 +2,6 @@ package haxe.ui.backend;
 
 import haxe.ui.core.Component;
 import haxe.ui.core.UIEvent;
-import haxe.ui.containers.dialogs.Dialog;
-import haxe.ui.containers.dialogs.DialogButton;
 import cs.system.windows.forms.Form;
 
 class ScreenBase {
@@ -24,12 +22,12 @@ class ScreenBase {
 
     public var width(get, null):Float;
     private function get_width():Float {
-        return 0;
+        return form.ClientSize.Width;
     }
 
     public var height(get, null):Float;
     private function get_height():Float {
-        return 0;
+        return form.ClientSize.Height;
     }
 
     public var dpi(get, null):Float;
@@ -82,21 +80,6 @@ class ScreenBase {
         c.resizeComponent(cx, cy);
     }
     
-    //***********************************************************************************************************
-    // Dialogs
-    //***********************************************************************************************************
-    public function messageDialog(message:String, title:String = null, options:Dynamic = null, callback:DialogButton->Void = null):Dialog {
-        return null;
-    }
-
-    public function showDialog(content:Component, options:Dynamic = null, callback:DialogButton->Void = null):Dialog {
-        return null;
-    }
-
-    public function hideDialog(dialog:Dialog):Bool {
-        return false;
-    }
-
     //***********************************************************************************************************
     // Events
     //***********************************************************************************************************

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <native>
-    
     <component id="haxe.ui.components.Label" class="System.Windows.Forms.Label" allowChildren="false">
         <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
@@ -9,9 +8,13 @@
         <behaviour id="resource" class="haxe.ui.backend.winforms.behaviours.ControlImage" />
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
     </component>
-    <component id="haxe.ui.components.Button" class="System.Windows.Forms.Button" allowChildren="false">
+    <component id="haxe.ui.components.Button" class="System.Windows.Forms.Button" style="TextImageRelation: System.Windows.Forms.TextImageRelation.ImageBeforeText; UseVisualStyleBackColor: true; AutoSize: true" allowChildren="false">
         <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
         <behaviour id="icon" class="haxe.ui.backend.winforms.behaviours.ControlImage" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>    
+    <component id="haxe.ui.components.Switch" class="System.Windows.Forms.Button" allowChildren="false">
+        <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
     </component>    
     <component id="haxe.ui.components.CheckBox" class="System.Windows.Forms.CheckBox" allowChildren="false">
@@ -58,19 +61,6 @@
         <behaviour id="max" class="haxe.ui.backend.winforms.behaviours.ControlMax" />
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
     </component>    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    <component id="haxe.ui.components.HSlider" class="System.Windows.Forms.TrackBar" allowChildren="false">
-        <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlValue" />
-        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
-    </component>    
     <component id="haxe.ui.containers.TabView" class="System.Windows.Forms.TabControl">
         <size class="haxe.ui.backend.winforms.size.TabControlPageSize" includePadding="false" />
     </component>
@@ -78,11 +68,21 @@
         <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
     </component>
+    <component id="haxe.ui.components.NumberStepper" class="System.Windows.Forms.NumericUpDown">
+        <behaviour id="pos" class="haxe.ui.backend.winforms.behaviours.ControlText" />
+        <behaviour id="step" class="haxe.ui.core.DefaultBehaviour" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>
+    <component id="haxe.ui.components.TextArea" class="System.Windows.Forms.TextBox" style="Multiline: true; ScrollBars: System.Windows.Forms.ScrollBars.Both; AutoSize: false;">
+        <behaviour id="text" class="haxe.ui.backend.winforms.behaviours.ControlText" />
+        <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
+    </component>
     <component id="haxe.ui.containers.ScrollView" class="System.Windows.Forms.Panel">
         <size class="haxe.ui.backend.winforms.size.ScrollViewSize" includePadding="false" />
     </component>
-    <component id="haxe.ui.components.Image" class="System.Windows.Forms.PictureBox">
-        <behaviour id="resource" class="haxe.ui.backend.winforms.behaviours.ControlImage" />
+    <component id="haxe.ui.components.DropDown" class="System.Windows.Forms.ComboBox" style="DropDownStyle: System.Windows.Forms.ComboBoxStyle.DropDownList;" allowChildren="false">
+        <behaviour id="selectedIndex" class="haxe.ui.backend.winforms.behaviours.SelectedIndex" />
+        <behaviour id="dataSource" class="haxe.ui.backend.winforms.behaviours.ComboBoxDataSource" />
         <size class="haxe.ui.backend.winforms.size.PreferredSize" includePadding="false" />
     </component>
     <!--

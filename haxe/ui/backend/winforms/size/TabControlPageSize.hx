@@ -17,7 +17,7 @@ class TabControlPageSize extends DelegateLayoutSize {
     }
 
     private override function get_usableHeightModifier():Float {
-        var m:Int = 26;
+        var m:Int = 32; // TODO: magic number
         return m;
     }
 }

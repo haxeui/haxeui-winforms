@@ -35,11 +35,10 @@ class ComponentBase {
         var style:String = Toolkit.nativeConfig.query('component[id=${className}].@style', null, null);
         control = Type.createInstance(Type.resolveClass(nativeComponentClass), []);
         StyleHelper.apply(control, style);
-        if (Std.is(control, cs.system.windows.forms.Button)) {
-            var button = cast(control, cs.system.windows.forms.Button);
-            button.TextImageRelation = cs.system.windows.forms.TextImageRelation.ImageBeforeText;
-            button.UseVisualStyleBackColor = true;
-            button.AutoSize = true;
+        if (Std.is(control, cs.system.windows.forms.TabControl)) {
+            var tabControl = cast(control, cs.system.windows.forms.TabControl);
+            tabControl.Padding = new Point(6, 5);
+            //tabControl.SizeMode = cs.system.windows.forms.TabSizeMode.Fixed;
         } else if (Std.is(this, haxe.ui.containers.ScrollView)) {
             cast(control, cs.system.windows.forms.Panel).AutoScroll = true;
         }
@@ -68,6 +67,12 @@ class ComponentBase {
     }
 
     private function handleReady() {
+        if (Std.is(control, cs.system.windows.forms.TrackBar)) { // super crappy hack, trackbars _always_ have a grey background... if you can believe that! 
+            var parent = findParent(cs.system.windows.forms.TabControl);
+            if (parent != null) {
+                control.BackColor = Color.White;
+            }
+        }
     }
 
     private function handleClipRect(value:Rectangle) {
@@ -152,6 +157,7 @@ class ComponentBase {
     // Display tree
     //***********************************************************************************************************
     private function handleSetComponentIndex(child:Component, index:Int) {
+
     }
 
     private function handleAddComponent(child:Component):Component {
@@ -164,24 +170,20 @@ class ComponentBase {
             
             if (Std.is(child, Box)) {
                 var box = cast(child, Box);
+                box.addClass("tabview-content");
                 if (box.icon != null) {
-                    //var imageList = tabControl.ImageList;
-                    //if (tabControl.ImageList == null) {
-                        //imageList = new ImageList();
+                    if (tabControl.ImageList == null) {
                         tabControl.ImageList = new ImageList();
-                    //}
-                    
+                    }
                     var bytes = Resource.getBytes(box.icon);
                     var stream = new MemoryStream(bytes.getData());
                     var image = Image.FromStream(stream);
                     tabControl.ImageList.Images.Add(box.icon, image);
-                    
-                    page.ImageKey = box.icon;
+                    page.ImageIndex = tabControl.ImageList.Images.Count - 1;
                 }
             }
             
             page.Controls.Add(child.control);
-            //control.Controls.Add(page);
             tabControl.TabPages.Add(page);
         } else {
             control.Controls.Add(child.control);
@@ -261,7 +263,6 @@ class ComponentBase {
                     if (Std.is(control, cs.system.windows.forms.TrackBar)) {
                         cast(control, cs.system.windows.forms.TrackBar).add_ValueChanged(___onChange);
                     } else if (Std.is(control, cs.system.windows.forms.CheckBox)) {
-                        trace("added");
                         cast(control, cs.system.windows.forms.CheckBox).add_CheckedChanged(___onChange);
                     }
                 }
@@ -291,10 +292,25 @@ class ComponentBase {
     }
     
     private function ___onChange(sender:Dynamic, e:cs.system.EventArgs) {
-        trace("here");
         var fn:UIEvent->Void = _eventMap.get(UIEvent.CHANGE);
         if (fn != null) {
             fn(new UIEvent(UIEvent.CHANGE));
         }
+    }
+    
+    //***********************************************************************************************************
+    // Helpers
+    //***********************************************************************************************************
+     private function findParent(cls:Class<Control>):Control {
+        var r:Control = null;
+        var p:Control = control.Parent;
+        while (p != null) {
+            if (Std.is(p, cls)) {
+                r = p;
+                break;
+            }
+            p = p.Parent;
+        }
+        return r;
     }
 }

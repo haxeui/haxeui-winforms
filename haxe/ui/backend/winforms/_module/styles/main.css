@@ -7,13 +7,24 @@
 }
 
 .textfield {
-    width: 100px;
+    width: auto;
     height: auto;
+}
+
+.numberstepper {
+    width: 70px;
+    height: 23px;
+}
+
+.textarea {
+    width: auto;
+    height: 100px;
 }
 
 .horizontal-slider {
     width: auto;
     height: 23px;
+    background-color: none;
 }
 
 .vertical-slider {
@@ -30,5 +41,3 @@
     width: 15px;
     height: 100px;
 }
-
-
