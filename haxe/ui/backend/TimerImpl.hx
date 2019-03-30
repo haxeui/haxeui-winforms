@@ -4,7 +4,7 @@ import cs.system.windows.forms.Timer;
 import cs.system.EventHandler;
 import cs.system.EventArgs;
 
-class TimerBase {
+class TimerImpl {
     private var _timer:Timer;
     private var _callback:Void->Void;
 

@@ -12,23 +12,20 @@ import cs.system.windows.forms.Panel;
 import haxe.ui.backend.winforms.StyleHelper;
 import haxe.ui.containers.Box;
 import haxe.ui.core.Component;
-import haxe.ui.core.ImageDisplay;
-import haxe.ui.core.TextDisplay;
-import haxe.ui.core.TextInput;
 import haxe.ui.events.MouseEvent;
 import haxe.ui.events.UIEvent;
 import haxe.ui.styles.Style;
-import haxe.ui.geom.Rectangle;
 
-class ComponentBase {
+class ComponentImpl extends ComponentBase {
     private var _eventMap:Map<String, UIEvent->Void> = new Map<String, UIEvent->Void>();
 
     public var control:Control;
     
     public function new() {
+        super();
     }
 
-    public function handleCreate(native:Bool) {
+    public override function handleCreate(native:Bool) {
         var className:String = Type.getClassName(Type.getClass(this));
         var nativeComponentClass:String = Toolkit.nativeConfig.query('component[id=${className}].@class', 'System.Windows.Forms.Panel', null);
         
@@ -44,7 +41,7 @@ class ComponentBase {
         }
     }
 
-    private function handlePosition(left:Null<Float>, top:Null<Float>, style:Style) {
+    private override function handlePosition(left:Null<Float>, top:Null<Float>, style:Style) {
         if (control == null) {
             return;
         }
@@ -52,7 +49,7 @@ class ComponentBase {
         control.Location = new Point(Std.int(left), Std.int(top));
     }
 
-    private function handleSize(width:Null<Float>, height:Null<Float>, style:Style) {
+    private override function handleSize(width:Null<Float>, height:Null<Float>, style:Style) {
         if (control == null) {
             return;
         }
@@ -66,7 +63,7 @@ class ComponentBase {
         control.Size = new Size(Std.int(width), Std.int(height));
     }
 
-    private function handleReady() {
+    private override function handleReady() {
         if (Std.is(control, cs.system.windows.forms.TrackBar)) { // super crappy hack, trackbars _always_ have a grey background... if you can believe that! 
             var parent = findParent(cs.system.windows.forms.TabControl);
             if (parent != null) {
@@ -75,92 +72,17 @@ class ComponentBase {
         }
     }
 
-    private function handleClipRect(value:Rectangle) {
-    }
-
-    public function handlePreReposition() {
-    }
-
-    public function handlePostReposition() {
-    }
-
-    private function handleVisibility(show:Bool) {
-    }
-
-    //***********************************************************************************************************
-    // Text related
-    //***********************************************************************************************************
-    private var _textDisplay:TextDisplay;
-    public function createTextDisplay(text:String = null):TextDisplay {
-        if (_textDisplay == null) {
-            _textDisplay = new TextDisplay();
-        }
-        if (text != null) {
-            _textDisplay.text = text;
-        }
-        return _textDisplay;
-    }
-
-    public function getTextDisplay():TextDisplay {
-        return createTextDisplay();
-    }
-
-    public function hasTextDisplay():Bool {
-        return (_textDisplay != null);
-    }
-
-    private var _textInput:TextInput;
-    public function createTextInput(text:String = null):TextInput {
-        if (_textInput == null) {
-            _textInput = new TextInput();
-        }
-        if (text != null) {
-            _textInput.text = text;
-        }
-        return _textInput;
-    }
-
-    public function getTextInput():TextInput {
-        return createTextInput();
-    }
-
-    public function hasTextInput():Bool {
-        return (_textInput != null);
-    }
-
-    //***********************************************************************************************************
-    // Image related
-    //***********************************************************************************************************
-    private var _imageDisplay:ImageDisplay;
-    public function createImageDisplay():ImageDisplay {
-        if (_imageDisplay == null) {
-            _imageDisplay = new ImageDisplay();
-        }
-        return _imageDisplay;
-    }
-
-    public function getImageDisplay():ImageDisplay {
-        return createImageDisplay();
-    }
-
-    public function hasImageDisplay():Bool {
-        return (_imageDisplay != null);
-    }
-
-    public function removeImageDisplay() {
-        if (_imageDisplay != null) {
-            _imageDisplay = null;
-        }
+    private override function handleVisibility(show:Bool) {
     }
 
     //***********************************************************************************************************
     // Display tree
     //***********************************************************************************************************
-    private function handleSetComponentIndex(child:Component, index:Int) {
+    private override function handleSetComponentIndex(child:Component, index:Int) {
 
     }
 
-    private function handleAddComponent(child:Component):Component {
+    private override function handleAddComponent(child:Component):Component {
         if (Std.is(this.control, cs.system.windows.forms.TabControl)) {
             var tabControl = cast(this.control, cs.system.windows.forms.TabControl);
             
@@ -191,20 +113,20 @@ class ComponentBase {
         return child;
     }
 
-    private function handleAddComponentAt(child:Component, index:Int):Component {
+    private override function handleAddComponentAt(child:Component, index:Int):Component {
         return child;
     }
     
-    private function handleRemoveComponent(child:Component, dispose:Bool = true):Component {
+    private override function handleRemoveComponent(child:Component, dispose:Bool = true):Component {
         control.Controls.Remove(child.control);
         return child;
     }
     
-    private function handleRemoveComponentAt(index:Int, dispose:Bool = true):Component {
+    private override function handleRemoveComponentAt(index:Int, dispose:Bool = true):Component {
         return null;
     }
 
-    private function applyStyle(style:Style) {
+    private override function applyStyle(style:Style) {
         if (control == null) {
             return;
         }
@@ -249,7 +171,7 @@ class ComponentBase {
     //***********************************************************************************************************
     // Events
     //***********************************************************************************************************
-    private function mapEvent(type:String, listener:UIEvent->Void) {
+    private override function mapEvent(type:String, listener:UIEvent->Void) {
         switch (type) {
             case MouseEvent.CLICK:
                 if (_eventMap.exists(type) == false) {
@@ -270,7 +192,7 @@ class ComponentBase {
         }
     }
 
-    private function unmapEvent(type:String, listener:UIEvent->Void) {
+    private override function unmapEvent(type:String, listener:UIEvent->Void) {
         switch (type) {
             case MouseEvent.CLICK:
                 _eventMap.remove(type);

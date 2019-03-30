@@ -1,11 +1,10 @@
 package haxe.ui.backend;
 
+import cs.system.drawing.Size;
 import cs.system.windows.forms.Application;
 import cs.system.windows.forms.Form;
-import haxe.ui.Preloader.PreloadItem;
-import cs.system.drawing.Size;
 
-class AppBase {
+class AppImpl extends AppBase {
     private var _form:Form;
     private var _onEnd:Void->Void;
     
@@ -14,12 +13,12 @@ class AppBase {
         Application.SetCompatibleTextRenderingDefault(false);
     }
 
-    private function build() {
+    private override function build() {
         _form = new Form();
         _form.Text = Toolkit.backendProperties.getProp("haxe.ui.winforms.form.title", "");
     }
 
-    private function init(onReady:Void->Void, onEnd:Void->Void = null) {
+    private override function init(onReady:Void->Void, onEnd:Void->Void = null) {
         _onEnd = onEnd;
         
         var formAutoSize = Toolkit.backendProperties.getPropBool("haxe.ui.winforms.form.autosize", true);
@@ -37,20 +36,16 @@ class AppBase {
         onReady();
     }
 
-    private function getToolkitInit():ToolkitOptions {
+    private override function getToolkitInit():ToolkitOptions {
         return {
             form: _form
         };
     }
 
-    public function start() {
+    public override function start() {
         Application.Run(_form);
         if (_onEnd != null) {
             _onEnd();
         }
-    }
-    
-    private function buildPreloadList():Array<PreloadItem> {
-        return null;
     }
 }
