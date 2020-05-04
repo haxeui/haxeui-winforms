@@ -32,15 +32,17 @@ class ScreenImpl extends ScreenBase {
     }
     
     private var __topLevelComponents:Array<Component> = new Array<Component>();
-    public override function addComponent(component:Component) {
+    public override function addComponent(component:Component):Component {
         __topLevelComponents.push(component);
         form.Controls.Add(component.control);
         resizeComponent(component);
+        return component;
     }
 
-    public override function removeComponent(component:Component) {
+    public override function removeComponent(component:Component):Component {
         __topLevelComponents.remove(component);
         form.Controls.Remove(component.control);
+        return component;
     }
 
     private override function handleSetComponentIndex(child:Component, index:Int) {
