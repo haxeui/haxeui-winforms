@@ -39,7 +39,7 @@ class ScreenImpl extends ScreenBase {
         return component;
     }
 
-    public override function removeComponent(component:Component):Component {
+    public override function removeComponent(component:Component, dispose:Bool = true):Component {
         __topLevelComponents.remove(component);
         form.Controls.Remove(component.control);
         return component;
